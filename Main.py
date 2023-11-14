@@ -17,7 +17,27 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def min_to_sec(min):
+    return min*60
 
+def hrs_to_sec(hrs):
+    return hrs*min_to_sec(60)
+
+def hrs_to_min(hrs):
+    return hrs*60
+
+def day_to_sec(days):
+    return days*hrs_to_sec(24)
+
+def day_to_hrs(days):
+    return days*24
+
+# - How many Hours are in the month of June? 
+print(day_to_hrs(30))
+# - How many Minutes are in the month of August?
+print(hrs_to_min(day_to_hrs(31)))
+ # Bonus -> Without singing the old showtune in your head, how many Minutes are there in a year? 
+print(hrs_to_min(day_to_hrs(365)))
 
 
 #  2) Middle letter
@@ -29,7 +49,17 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def middle_letter(string):
+    string_length = len(string)
+    if string_length%2==0:
+        return "no middle"
+    else:
+        #round_down(string_length/2) --> index of the string that we want to return
+        # index = math.floor(string_length/2)
+        return string[math.floor(string_length/2)]
 
+print(middle_letter("abcefgh"))
+print(middle_letter("aaaa"))
 
 # ### 3) Hide the credit card number
 # Write a function in Python that accepts a credit card number. It should return a string where all the characters are hidden with an asterisk except the last four. For example, if the function gets sent "1234567894444", then it should return "*********4444".
@@ -38,7 +68,32 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def hide_cc_number (ccn):
+    ccn_string = str(ccn)
+    # for index in range(0,len(ccn_string)-4): 
+    #     ccn_string[index] = "*" 
+    # return ccn_string
 
+    str_start = ""
+    str_end = ""
+
+    for index in range(0,len(ccn_string)-4):
+        str_start += "*"
+    for index in range(len(ccn_string)-4, len(ccn_string)):
+        str_end += ccn_string[index]
+    
+    return str_start + str_end
+
+# str1 = first portion of the ccn
+
+print(hide_cc_number(5555555555555555))
+
+#----------------------------------------
+
+
+def hide_credit_card(credit_card_num):    
+    return '*' * (len(credit_card_num)-4) + credit_card_num[-4:]
+print(hide_credit_card("5555555555555555"))
 
 
 # ### 4) Online status
@@ -64,7 +119,21 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+statuses = {
+    "John": "online",
+    "Paul": "online",
+    "George": "online",
+    "Ringo": "offline"
+}
 
+def online_count (dict):
+    online_counter = 0
+    for value in dict:
+        if dict[value] == "online":
+            # online_counter = online_counter+1
+            online_counter+=1
+    return online_counter
+print(online_count(statuses))
 
 
 #  5) Give me the discount
@@ -74,7 +143,9 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
-
+def discount(price,perc):
+    return price*(1-perc/100)
+print(discount(100,20))
 
 #  6) Pythagorean Theorum
 
@@ -85,7 +156,9 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
-
+def hypotenouse(a,b):
+    return math.sqrt(a**2 + b**2)
+print(hypotenouse(3,4))
 
 #  7) Fibonacci Sequence 
 # Everyone's favorite Math Problem!
@@ -98,3 +171,9 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def get_fibonacci(num1, num2):
+    nums = [num1, num2]
+    for i in range(9):    
+        nums.append(nums[-2]+nums[-1])
+    return nums
+print(get_fibonacci(4, 5))
