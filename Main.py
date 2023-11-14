@@ -21,11 +21,11 @@ days_in_year = 365
 days_in_June = 30
 days_in_August = 31
 
-def convert_time(min):
-    min_in_secs = min*secs_in_min
+def convert_mins_to_secs(min):
+    min_in_secs = min * secs_in_min
     return(min_in_secs)
     
-#print(convert_time(1))
+#print(convert_mins_to_secs(1))
 
 def convert_hrs_to_secs(hours):
     hours_in_secs = hours * mins_in_hour * secs_in_min
