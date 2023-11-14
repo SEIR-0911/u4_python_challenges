@@ -1,4 +1,5 @@
 # Python Challenges
+import math
 
 
 #  1) The Time Stone: Lets get cosmic here and begin working with Time.
@@ -16,6 +17,36 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+#PART 1 ->
+seconds_in_minute = 60
+minutes = 5
+minute_in_seconds = (minutes * seconds_in_minute)
+print(minute_in_seconds)
+
+#PART2 ->
+seconds_in_a_minute = 60
+minutes_in_an_hour = 60
+hours = 1
+hours_in_seconds = (hours * seconds_in_a_minute * minutes_in_an_hour)
+print(hours_in_seconds)
+
+#PART3 ->
+seconds_in_a_minute = 60
+minutes_in_an_hour = 60
+hours_in_a_day = 24
+seconds_in_a_day = (seconds_in_a_minute * minutes_in_an_hour * hours_in_a_day)
+print(seconds_in_a_day)
+
+#PART4 ->
+print(hours_in_a_day(30))
+#PART5 ->
+print(hours_in_a_day(31))
+
+#      Bonus ->
+minutes_in_an_hour = 60
+hours_in_a_day = 24
+days_in_a_year = 365
+print(minutes_in_an_hour * hours_in_a_day * days_in_a_year)
 # ---------------------------------
 
 
@@ -28,6 +59,18 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def middle_letter(string):
+    string_length = len(string)
+    if string_length%2==0:
+        return "no middle"
+    else:
+        #round_down(string_length/2) --> index of the string that we want to return
+        # index = math.floor(string_length/2)
+        return string[math.floor(string_length/2)]
+
+print(middle_letter("abcefgh"))
+print(middle_letter("aaaa"))
+
 # ---------------------------------
 
 
@@ -37,6 +80,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def hide_credit_card(credit_card_num):    
+    return '*' * (len(credit_card_num)-4) + credit_card_num[-4:]
+
+print(hide_credit_card('1234567894444'))
 # ---------------------------------
 
 
@@ -63,6 +110,17 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def online_count (dict):
+    online_counter = 0
+    for value in dict:
+        if dict[value] == "online":
+            # online_counter = online_counter+1
+            online_counter+=1
+    return online_counter
+print(online_count(statuses))
+  
+   
+
 # ---------------------------------
 
 
@@ -73,6 +131,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def discount(price,perc):
+  return prtice*(1-perc/100)
+ print(discount(100,20))
+
 # ---------------------------------
 
 
@@ -84,6 +146,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def hypotenouse(a,b):
+    return math.sqrt(a**2 + b**2)
+print(hypotenouse(3,4))
+
 # ---------------------------------
 
 
@@ -97,4 +163,16 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def get_fibonacci(num1, num2):
+    nums = [num1, num2]
+    for i in range(9):    
+        nums.append(nums[-2]+nums[-1])
+    return nums
+print(get_fibonacci(4, 5))
+
+
+
+
+
 # ---------------------------------
