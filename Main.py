@@ -1,8 +1,7 @@
 # Python Challenges
 
 
-#  1) The Time Stone: Lets get cosmic here and begin working with Time.
-
+#  1. The Time Stone: Lets get cosmic here and begin working with Time.
 # - First, lets create a function that converts Minutes to Seconds (1 ->60, 5 -> 300)
 # -  Then take it up a step further, converting Hours into seconds (1 -> 3600)
 # -  We're on the right track here, how many seconds are in a day
@@ -15,11 +14,61 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+#      Solution Goes Here -> 
 # ---------------------------------
+def min_to_sec(min):
+    seconds_in_min = min * 60
+    return seconds_in_min
+def hours_to_sec(hours):
+    mins = hours *60
+    secs = mins * 60
+    return secs
+def days_to_secs(days):
+    hours = days * 24
+    mins = hours * 60
+    secs = mins * 60
+    return secs
 
+month = {
+    "days": '',
+    "hours": '',
+    "minutes": '',
+    'seconds': '',
+}
 
+def populate_month(days):
+    month.update(
+        {'days': days,
+        'hours': (days * 24),
+        'minutes': (days * 24 * 60),
+        'seconds': (days * 24 * 60 * 60)}
+     )
+    return [month[key] for key in month]
+#June
+print(populate_month(30))
+#return: [30, 720, 43200, 2592000], so 720 hrs in June
 
+#August
+print(populate_month(31))
+# return: [31, 744, 44640, 2678400], so 44,640 minutes in August
+
+#Bonus...?
+def year_to_minutes(year):
+    days = year * 365
+    hours = days * 24
+    mins = hours * 60
+    print(mins)
+
+year_to_minutes(1) #return: 525600
+
+print(days_to_secs(1) / 60) #1440 minutes in a day
+
+print(days_to_secs(7) / 60) #10080 minutes in a week
+
+def coffee_to_mins(coffee):
+    return ("It really depends on how you brew it, and how long you let it cool, and whether you add things to it, and then how long you take to drink it. And then we have to consider whether you count the clean-up time, and does it count as a minute in a cup of coffee if it's at a cafe and YOU don't clean it up, but someone else does - and really, while we're thinking about that, what about the people who prepared and picked and packag--")
+
+# print(coffee_to_mins('5 cups'))
 #  2) Middle letter
 
 # Write a function named mid that takes a string as its parameter. Your function should extract and return the middle letter. If there is no middle letter, your function should return the empty string.
@@ -30,6 +79,21 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+#credit to geeksforgeeks for inspiration on separating a string into an array for this https://www.geeksforgeeks.org/python-split-string-into-list-of-characters/#
+def mid(string):
+    letter_list = []
+
+    for letter in string:
+        letter_list.append(letter)
+
+    if len(letter_list) % 2 == 0:
+        return ''
+    else:
+        half_index = int(len(letter_list)/2)
+        return letter_list[half_index]
+
+print(mid('abc'))
+print(mid('aaaa'))
 
 # ### 3) Hide the credit card number
 # Write a function in Python that accepts a credit card number. It should return a string where all the characters are hidden with an asterisk except the last four. For example, if the function gets sent "1234567894444", then it should return "*********4444".
@@ -38,8 +102,23 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+#credit to geeksforgeeks, enterpriseDNA, stack overflow, simplilearn, and Web3 for the search results on various "<do something to a list> in python" questions throughout this challenge
+def card_num (string):
+    num_list = []
 
+    for char in string:
+        num_list.append(char)
+    
+    to_asterisk = (num_list[:-4])
+    last_4 = (num_list[-4:])
 
+    for index, item in enumerate(to_asterisk):
+        to_asterisk.pop(index)
+        to_asterisk.insert(index, '*')
+        
+    return ''.join(to_asterisk + last_4)
+
+print(card_num('1234567890'))
 
 # ### 4) Online status
 # The aim of this challenge is, given a dictionary of people's online status, to count the number of people who are online.
@@ -47,12 +126,12 @@
 # For example, consider the following dictionary:
 
 # ```
-# statuses = {
-#     "John": "online",
-#     "Paul": "offline",
-#     "George": "online",
-#     "Ringo": "offline"
-# }
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+}
 
 # ```
 
@@ -65,6 +144,20 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+def online_count(dictionary):
+    
+    online = []
+
+    def f(dictionary):
+     for key in dictionary:
+        if dictionary[key] == 'online':
+            online.append(key)
+        else:
+            continue      
+    f(dictionary)
+    return len(online)
+    
+print(online_count(statuses))
 
 
 #  5) Give me the discount
@@ -75,6 +168,10 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+def discount(price, discount_percentage):
+    print(price - price*discount_percentage/100)
+
+discount(100, 20)
 
 #  6) Pythagorean Theorum
 
@@ -85,16 +182,33 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+# https://realpython.com/python-square-root-function/#:~:text=You%20can%20now%20use%20math,to%20calculate%20the%20square%20root. Credit here for how to use math
+import math
+def find_hypotenouse(adjacent, opposite):
+    c_squared = adjacent**2 + opposite **2
+    return math.sqrt(c_squared)
 
+print(find_hypotenouse( 8, 9))    
 
 #  7) Fibonacci Sequence 
 # Everyone's favorite Math Problem!
 
 # The Fibonacci numbers are the numbers in the following integer sequence.
 # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ……..
-# In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation between two adjacent steps in a list
+# In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation between two adjacent steps in a list (lol wut?)
 # Create a python function that takes two numbers and finds the next Nine intervals using the Fibonacci Sequence
 
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+#credit to wikipedia for an easier explanation of the Fibonacci sequence and w3 for how to make a while loop in python
+
+def Fibonacci(start1, start2):
+    sequence = [start1, start2]
+
+    i=1
+    while i<10:
+        sequence.append(sum(sequence[-2:]))
+        print(sequence)
+        i += 1
+Fibonacci(0, 1)
