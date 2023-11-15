@@ -13,12 +13,30 @@
  # Bonus -> Without singing the old showtune in your head, how many Minutes are there in a year? 
  # In days, in weeks, in cups of coffee?
 
+def minutesToSeconds(x):
+    print(x * 60)
 
-# ---------------------------------
-#      Solution Goes Here ->
-# ---------------------------------
+minutesToSeconds(1)
 
+def hoursToSeconds(x):
+    print(x * 60 * 60)
 
+hoursToSeconds(1)
+
+def daysToSeconds(x):
+    print(x * 24 * 60 * 60)
+
+daysToSeconds(1)
+
+def hoursInJune():
+    print('There are', 30 * 24, 'hours in June!')
+
+hoursInJune()
+
+def minutesInAugust():
+    print('There are', 31 * 24 * 60, 'minutes in August!')
+
+minutesInAugust()
 
 #  2) Middle letter
 
@@ -27,16 +45,37 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+def mid(string):
+    length = len(string)
+    if length % 2 == 0 or length == 0:
+        print('""')
+    else:
+        print(string[len(string)//2])
+
+
+mid('Pluviophile')
+
+
 # ---------------------------------
 
 
 # ### 3) Hide the credit card number
+
 # Write a function in Python that accepts a credit card number. It should return a string where all the characters are hidden with an asterisk except the last four. For example, if the function gets sent "1234567894444", then it should return "*********4444".
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def hideCC(num):
+    cc = list(num)
+    for index, i in enumerate(cc):
+        if index  <= 11:   
+            cc[index] = '*'
+
+    print(''.join(cc))
+
+hideCC("1234567899874561")
+
 # ---------------------------------
 
 
@@ -62,7 +101,24 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+statuses = {
+    "John": "online",
+    "Paul": "online",
+    "George": "online",
+    "Ringo": "offline"
+}
+
+def online_count(dict):
+    val = dict.values()
+    counter = 0
+    for i in val:
+        if i == 'online':
+            counter += 1
+    print(counter)
+
+online_count(statuses)
+
 # ---------------------------------
 
 
@@ -72,7 +128,11 @@
 # The function should return the price of the item after the discount has been applied. For example, if the price is 100 and the discount is 20, the function should return 80.
 
 # ---------------------------------
-#      Solution Goes Here ->
+def discount(fullPrice, discountPercent):
+    print(fullPrice - (fullPrice * (discountPercent * 0.01)))
+
+discount(100, 20)
+
 # ---------------------------------
 
 
@@ -83,7 +143,12 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def pythagreon(a, b):
+    print((a**2 + b**2)**0.5)
+
+pythagreon(10, 10)
+
 # ---------------------------------
 
 
@@ -96,5 +161,16 @@
 # Create a python function that takes two numbers and finds the next Nine intervals using the Fibonacci Sequence
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def fibonacci(num):
+    if num == 1:
+         return 0
+    if num == 2:
+        return 1
+    return fibonacci(num - 1) + fibonacci(num + 2)
+
+for i in range(1,10):
+    print(fibonacci(i))
+
 # ---------------------------------
+
