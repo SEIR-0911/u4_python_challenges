@@ -7,3 +7,5 @@ Perform all tasks by running the Main.py file in your terminal
 
 
 Find a cool picture of a snake and post it in here for bonus points
+
+-_-_-_-_-_-o-<   snake (case)
