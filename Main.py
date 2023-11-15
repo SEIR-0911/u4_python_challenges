@@ -8,14 +8,43 @@
 # -  We're on the right track here, how many seconds are in a day
 # - How many Hours are in the month of June? 
 # - How many Minutes are in the month of August?
- 
- 
+# def min_to_sec(mins):
+#     return mins * 60
+# print(min_to_sec(5))
+# def hours_to_mins(hours):
+#     return hours * 60
+# print(min_to_sec(hours_to_mins(1))) # ANSWER: 1 hour = 3600 seconds
+# def day_to_hours(days):
+#     return days * 24
+# print(min_to_sec(hours_to_mins(day_to_hours(1)))) # ANSWER: 1 day = 86400 seconds
+# june = 30
+# august = 31
+# print(day_to_hours(june)) # ANSWER: hours in June = 720
+# print(hours_to_mins(day_to_hours(august))) # ANSWER: hours in august = 44640
+
  # Bonus -> Without singing the old showtune in your head, how many Minutes are there in a year? 
  # In days, in weeks, in cups of coffee?
-
+# days_in_year = 365
+# print(hours_to_mins(day_to_hours(days_in_year))) # ANSWER: minutes in a year: 525600 minutes
 
 # ---------------------------------
 #      Solution Goes Here ->
+def min_to_sec(mins):
+    return mins * 60
+def hours_to_mins(hours):
+    return hours * 60
+def day_to_hours(days):
+    return days * 24
+june = 30
+august = 31
+days_in_year = 365
+    # print(min_to_sec(5))
+    # print(min_to_sec(hours_to_mins(1))) # ANSWER: 1 hour = 3600 seconds
+    # print(min_to_sec(hours_to_mins(day_to_hours(1)))) # ANSWER: 1 day = 86400 seconds
+    # print(day_to_hours(june)) # ANSWER: hours in June = 720
+    # print(hours_to_mins(day_to_hours(august))) # ANSWER: hours in august = 44640
+    # print(hours_to_mins(day_to_hours(days_in_year))) # ANSWER: minutes in a year: 525600 minutes
+
 # ---------------------------------
 
 
@@ -24,19 +53,38 @@
 
 # Write a function named mid that takes a string as its parameter. Your function should extract and return the middle letter. If there is no middle letter, your function should return the empty string.
 # For example, mid("abc") should return "b" and mid("aaaa") should return "".
+# def mid(str):
+#     if len(str) % 2 == 0:
+#         return 'no middle'
+#     else:
+#         i = len(str) // 2
+#         return str[i]
 
+# print(mid('abcdefg'))
 
 # ---------------------------------
-#      Solution Goes Here ->
+#      Solution Goes Here -> 
+def mid(str):
+    if len(str) % 2 == 0:
+        return 'no middle'
+    else:
+        i = len(str) // 2
+        return str[i]
 # ---------------------------------
 
 
 # ### 3) Hide the credit card number
 # Write a function in Python that accepts a credit card number. It should return a string where all the characters are hidden with an asterisk except the last four. For example, if the function gets sent "1234567894444", then it should return "*********4444".
 
+def hide_numbers(nums):
+    return '*' * (len(nums)-4) + nums[-4:]
 
 # ---------------------------------
 #      Solution Goes Here ->
+def hide_numbers(nums):
+    return '*' * (len(nums)-4) + nums[-4:]
+
+# print(hide_numbers('123456789'))
 # ---------------------------------
 
 
@@ -47,12 +95,12 @@
 # For example, consider the following dictionary:
 
 # ```
-# statuses = {
-#     "John": "online",
-#     "Paul": "offline",
-#     "George": "online",
-#     "Ringo": "offline"
-# }
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+}
 
 # ```
 
@@ -63,6 +111,15 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def online_count(people):
+    count = 0
+    for key in people:
+        if people[key] == 'online':
+            count += 1
+        # print(key)
+    return count
+
+# print(online_count(statuses))
 # ---------------------------------
 
 
@@ -71,8 +128,16 @@
 # Create a function in Python that accepts two parameters. The first should be the full price of an item as an integer. The second should be the discount percentage as an integer.
 # The function should return the price of the item after the discount has been applied. For example, if the price is 100 and the discount is 20, the function should return 80.
 
+# def discount(full, dis):
+#     total_discount = (full * dis) / 100
+#     return full - total_discount
 # ---------------------------------
 #      Solution Goes Here ->
+def discount(full, dis):
+    total_discount = (full * dis) / 100
+    return full - total_discount
+
+# print(discount(100,20))
 # ---------------------------------
 
 
@@ -84,6 +149,9 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def pythagorean(a, b):
+    return ((a ** 2) + (b ** 2)) ** .5
+# print(pythagorean(3,4))
 # ---------------------------------
 
 
@@ -97,4 +165,12 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def fibonacci(i, j):
+    rounds = 1
+    arr = [i, j]
+    while rounds < 10:
+        arr.append(arr[-1] + arr[-2])
+        rounds += 1
+    return arr
+# print(fibonacci(0,1))
 # ---------------------------------
