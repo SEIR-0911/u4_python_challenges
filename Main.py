@@ -16,6 +16,18 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def days_to_seconds(days):
+    hours = days * 24
+    minutes = hours * 60
+    seconds = minutes * 60
+    return seconds
+
+June = 30
+August = 31
+
+print(days_to_seconds(June)/360)
+print(days_to_seconds(August)/60)
 # ---------------------------------
 
 
@@ -28,6 +40,14 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def mid(s):
+    length = len(s)
+    if length % 2 == 0:  
+        return ""
+    else:  
+        middle_index = length // 2
+        return s[middle_index]
 # ---------------------------------
 
 
@@ -37,6 +57,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def hide_credit_card(card_number):
+    hidden_part = '*' * (len(card_number) - 4)
+    return hidden_part + card_number[-4:]
 # ---------------------------------
 
 
@@ -63,6 +87,13 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def online_count(statuses):
+    count = 0
+    for status in statuses.values():
+        if status == "online":
+            count += 1
+    return count
 # ---------------------------------
 
 
@@ -73,6 +104,11 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def calculate_discounted_price(full_price, discount_percentage):
+    discount_amount = (full_price * discount_percentage) / 100
+    discounted_price = full_price - discount_amount
+    return discounted_price
 # ---------------------------------
 
 
@@ -84,6 +120,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def calculate_hypotenuse(adjacent, opposite):
+    hypotenuse = (adjacent**2 + opposite**2)**0.5
+    return int(round(hypotenuse))
 # ---------------------------------
 
 
@@ -97,4 +137,13 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def fibonacci(num1, num2):
+    fibonacci_sequence = [num1, num2]
+
+    for _ in range(9):
+        next_number = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        fibonacci_sequence.append(next_number)
+
+    return fibonacci_sequence[2:]
 # ---------------------------------
