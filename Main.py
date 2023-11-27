@@ -16,6 +16,28 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def minutes_to_seconds (minutes):
+    seconds = minutes * 60
+    return seconds
+
+def hours_to_seconds (hours):
+    return minutes_to_seconds(hours * 60)
+
+def seconds_in_day (days):
+    return hours_to_seconds(days * 24)
+
+def hours_in_June (junes):
+    days = 30 * junes
+    return (days * 24)
+
+def minutes_in_august (augusts):
+    days = 31 * augusts
+    return (1440 * days)
+
+def minutes_in_year (years):
+    days = 365 * years
+    return (days * 1440)
+
 # ---------------------------------
 
 
@@ -28,6 +50,13 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def mid (user_string):
+    mid_index = len(user_string) // 2
+    if len(user_string) % 2 != 0:
+        return(user_string[mid_index])
+    else:
+        return('')
+    
 # ---------------------------------
 
 
@@ -37,6 +66,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def privacy (card_num):
+    card_num = str(card_num)
+    hidden = card_num[:-4]
+    return hidden + '****'
 # ---------------------------------
 
 
@@ -46,15 +79,15 @@
 
 # For example, consider the following dictionary:
 
-# ```
-# statuses = {
-#     "John": "online",
-#     "Paul": "offline",
-#     "George": "online",
-#     "Ringo": "offline"
-# }
 
-# ```
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+}
+
+
 
 # In this case, the number of people online is 2.
 # Write a function named online_count that takes one parameter. The parameter is a dictionary that maps from strings of names to the string "online" or "offline", as seen above.
@@ -63,6 +96,14 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def online_count (status):
+    all_values = (status.values())
+    count = 0
+    for value in all_values:
+        if value == "online":
+            count += 1
+    return count
+
 # ---------------------------------
 
 
@@ -73,6 +114,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def discount_calculator (price, discount):
+    total = price * ((100 - discount) * .01)
+    return int(total)
+
 # ---------------------------------
 
 
@@ -84,6 +129,9 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def pythagorean_theorum (a, o):
+    return int(((a ** 2) + (o ** 2)) ** 0.5)
+
 # ---------------------------------
 
 
@@ -97,4 +145,11 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def fibonacci (num1, num2):
+    sequence = [num1, num2]
+    while len(sequence) < 11:
+        next_interval = sequence[-1] + sequence[-2]
+        sequence.append(next_interval)
+    return sequence
+
 # ---------------------------------
