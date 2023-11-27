@@ -15,7 +15,28 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+def minutes_to_seconds(minutes):
+    return minutes * 60
+
+def hours_to_seconds(hours):
+    return hours * 3600
+
+def days_to_seconds(days):
+    return days * 24 * 3600
+
+def hours_in_june():
+    days_in_june = 30  
+    return days_to_seconds(days_in_june)
+
+def minutes_in_august():
+    days_in_august = 31  
+    return days_to_seconds(days_in_august) / 60
+
+print("1 minute in seconds:", minutes_to_seconds(1))
+print("1 hour in seconds:", hours_to_seconds(1))
+print("1 day in seconds:", days_to_seconds(1))
+print("Hours in June:", hours_in_june())
+print("Minutes in August:", minutes_in_august())
 # ---------------------------------
 
 
@@ -27,7 +48,19 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def mid(string):
+    length = len(string)
+
+    if length % 2 == 0:
+        return ""
+    else:        
+        middle_index = length // 2
+        return string[middle_index]
+
+print(mid("abc"))
+print(mid("aaaa"))
+
 # ---------------------------------
 
 
@@ -36,7 +69,11 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def hide_card_number(card_number):
+    return "*" * (len(card_number) - 4) + card_number[-4:]
+print(hide_card_number("1234567894444"))
+
 # ---------------------------------
 
 
@@ -47,12 +84,12 @@
 # For example, consider the following dictionary:
 
 # ```
-# statuses = {
-#     "John": "online",
-#     "Paul": "offline",
-#     "George": "online",
-#     "Ringo": "offline"
-# }
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+}
 
 # ```
 
@@ -62,7 +99,16 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def online_count(statuses):
+    count = 0
+    for status in statuses.values():
+        if status == "online":
+            count += 1
+    return count
+
+print(online_count(statuses))
+
 # ---------------------------------
 
 
@@ -72,7 +118,12 @@
 # The function should return the price of the item after the discount has been applied. For example, if the price is 100 and the discount is 20, the function should return 80.
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def apply_discount(price, discount):
+    return price * (100 - discount) / 100
+
+print(apply_discount(100, 20))
+
 # ---------------------------------
 
 
@@ -83,7 +134,12 @@
 
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def calculate_hypotenuse(adjacent, opposite):
+    return (adjacent **2 + opposite ** 2) ** 0.5
+
+print(calculate_hypotenuse(3, 4))
+
 # ---------------------------------
 
 
@@ -96,5 +152,14 @@
 # Create a python function that takes two numbers and finds the next Nine intervals using the Fibonacci Sequence
 
 # ---------------------------------
-#      Solution Goes Here ->
+
+def fibonacci_sequence(start1, start2):
+    sequence = [start1, start2]
+    for i in range(9):
+        next_number = sequence[-1] + sequence[-2]
+        sequence.append(next_number)
+    return sequence
+
+print(fibonacci_sequence(100, 200))
+
 # ---------------------------------
