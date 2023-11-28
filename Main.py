@@ -17,14 +17,36 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def timeConverter(mins):
+    return mins*60
 
+def timeConverter2(hours):
+    return hours*360
 
+def timeConverter3(day):
+    return day*24*360
+
+def timeConverter4(month):
+    return month*30*24
+
+def timeConverter5(month):
+    return month*31*24*60
 
 #  2) Middle letter
 
 # Write a function named mid that takes a string as its parameter. Your function should extract and return the middle letter. If there is no middle letter, your function should return the empty string.
 # For example, mid("abc") should return "b" and mid("aaaa") should return "".
 
+
+def mid(string):
+    if len(string) % 2 == 0:
+        return ""
+    else:
+        a = len(string) // 2
+        return string[a]
+    
+    
+print(mid('Brian'))
 
 # ---------------------------------
 #      Solution Goes Here ->
@@ -33,6 +55,11 @@
 
 # ### 3) Hide the credit card number
 # Write a function in Python that accepts a credit card number. It should return a string where all the characters are hidden with an asterisk except the last four. For example, if the function gets sent "1234567894444", then it should return "*********4444".
+
+def hideNum(num):
+    return'*' * (len(num)-4) + num[-4:]
+
+print(hideNum(85763452))
 
 
 # ---------------------------------
@@ -60,6 +87,13 @@
 # Write a function named online_count that takes one parameter. The parameter is a dictionary that maps from strings of names to the string "online" or "offline", as seen above.
 # Your function should return the number of people who are online.
 
+def online_count(e):
+    num=0
+    for key in e:
+        if e[key] == "online"
+            num += 1
+    return num   
+
 
 # ---------------------------------
 #      Solution Goes Here ->
@@ -71,6 +105,12 @@
 # Create a function in Python that accepts two parameters. The first should be the full price of an item as an integer. The second should be the discount percentage as an integer.
 # The function should return the price of the item after the discount has been applied. For example, if the price is 100 and the discount is 20, the function should return 80.
 
+def discountCalc(price, discount):
+    disc = discount * .01
+    moneyOff = price * disc
+    final = price - moneyOff
+    return final
+
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
@@ -81,6 +121,12 @@
 # As any High School sophomore will tell you, the sum of the squares of two legs of a right trangle will equal the square of the hypotenouse.
 # Create a function that takes two integers as the Adjacent and Opposite legs of a triangle, and returns an integer of the Hypotenouse
 
+import math
+
+def hypoth_calc(a,b):
+    return math.sqrt((a*a) + (b*b))
+
+print(hypoth_calc(10,6))
 
 # ---------------------------------
 #      Solution Goes Here ->
@@ -94,6 +140,17 @@
 # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ……..
 # In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation between two adjacent steps in a list
 # Create a python function that takes two numbers and finds the next Nine intervals using the Fibonacci Sequence
+
+
+def fibonacci(i, j):
+    rounds = 1
+    seq = [i, j]
+    while rounds < 10:
+        seq.append(seq[-1]+seq[-2])
+        rounds += 1
+    return seq
+
+print(fibonacci(0,1))
 
 # ---------------------------------
 #      Solution Goes Here ->
